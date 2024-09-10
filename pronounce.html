@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="pronounce" />
+        <meta property="og:description" content="pronounce" />
+        <meta
+            property="og:image"
+            content="https://pronounceinc.github.io/pronoun.png/"
+        />
+        <meta
+            property="og:url"
+            content="https://pronounceinc.github.io/pronounce.html/"
+        />
+        <meta property="og:type" content="website" />
+        <title>pronounce</title>
+    </head>
+    <body
+        style="display: flex; flex-direction: column; background-color: #1e1e1e"
+    >
+        <h1>WARNING: LOUD AUDIO</h1>
+        <img
+            src="/pronoun.png"
+            id="pronoun"
+            alt="A stretched image of Ninja (the popular streamer) smirking at the camera with a Red Bull shirt, with the word pronoun written to the right."
+            style="opacity: 0"
+        />
+        <button id="movable" onclick="pronounce()" type="button">
+            pronounce
+        </button>
+        <style>
+            #pronoun {
+                width: 550px;
+                height: auto;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            button {
+                font-family: "Gill Sans", "Gill Sans MT", Calibri,
+                    "Trebuchet MS", sans-serif;
+                color: white;
+            }
+            /* \/ i spent an entire 30 mins doing this */
+            button {
+                transition: 0.2s ease-out;
+                background-color: var(--normal-button-color);
+                color: white;
+                border-style: solid;
+                font-size: 25px;
+                border-radius: 30px;
+                width: 125px;
+                height: 50px;
+            }
+            :root {
+                --hover-button-color: #424242;
+                --normal-button-color: #313131;
+                --click-button-color: #000000;
+            }
+            button:hover {
+                transition: 0.2s ease-out;
+                transform: scale(0.95) rotate(-5deg);
+                background-color: var(--hover-button-color);
+            }
+            button:active {
+                transition: 0.2s ease-out;
+                transform: scale(1.25) rotate(10deg);
+                background-color: var(--click-button-color);
+            }
+            /* /\ i spent an entire 30 mins doing this */
+        </style>
+        <script>
+            function moveRandom() {
+                const element = document.getElementById("movable");
+
+                // Get viewport dimensions
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+
+                // Generate random positions within viewport bounds
+                const randomX = Math.random() * (viewportWidth / 2);
+                const randomY = Math.random() * (viewportHeight / 2);
+
+                // Apply new position to the element
+                element.style.transform = `translateX(${randomX}px) translateY(${randomY}px)`;
+                // thank you shat gee pee tea (again)
+            }
+            function pronounce() {
+                const movable = document.getElementById("movable");
+                const ninja = document.getElementById("pronoun");
+                movable.style.transition = "0.2s";
+                moveRandom();
+                ninja.style = "transition: 0.1s; opacity: 1;";
+                let audio = new Audio("/audio.webm");
+                audio.currentTime = 13;
+                audio.play();
+                setTimeout(() => {
+                    ninja.style = "transition: 0.4s; opacity: 0;";
+                }, 1000);
+            }
+        </script>
+    </body>
+</html>
