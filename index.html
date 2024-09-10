@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>pronoun</title>
+    </head>
+    <body>
+        <div id="pronoun_">
+            <h1 id="pronoun__">Pronounce Inc.</h1>
+            <button type="button" onclick="window.location.reload()">
+                pronoun
+            </button>
+        </div>
+        <style>
+            body {
+                background-image: url(/pronoun.png);
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            button {
+                font-family: "Gill Sans", "Gill Sans MT", Calibri,
+                    "Trebuchet MS", sans-serif;
+                color: white;
+            }
+            #pronoun_ {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #pronoun__ {
+                text-align: center;
+            }
+            /* \/ i spent an entire 30 mins doing this */
+            button {
+                transition: 0.2s ease-out;
+                background-color: var(--normal-button-color);
+                color: white;
+                border-style: solid;
+                font-size: 25px;
+                border-radius: 30px;
+                width: 125px;
+                height: 50px;
+            }
+            :root {
+                --hover-button-color: #424242;
+                --normal-button-color: #313131;
+                --click-button-color: #000000;
+            }
+            button:hover {
+                transition: 0.2s ease-out;
+                transform: scale(0.95) rotate(-5deg);
+                background-color: var(--hover-button-color);
+            }
+            button:active {
+                transition: 0.2s ease-out;
+                transform: scale(1.25) rotate(10deg);
+                background-color: var(--click-button-color);
+            }
+            /* /\ i spent an entire 30 mins doing this */
+        </style>
+    </body>
+</html>
